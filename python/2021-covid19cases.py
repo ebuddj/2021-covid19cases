@@ -63,7 +63,7 @@ for country in df.location.unique():
   data[country_data_name] = {'Province_State':country_data_name}
   for index, values in (df[df['location'] == country]).iterrows():
     # If the value is not zero, fill the data.
-    if values.new_cases_smoothed_per_million != 0:
+    if values.new_cases_smoothed_per_million > 0:
       previous_value = values.new_cases_smoothed_per_million
       # Data format to be like following
       # data[Finland][2020-12-31] = 3.1

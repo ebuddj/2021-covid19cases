@@ -30,7 +30,7 @@ const type = 'cases';
 
 const projection = (area === 'erno') ? d3.geoAzimuthalEquidistant().center([25,46]).scale(3000) : d3.geoAzimuthalEquidistant().center([33,57]).scale(800);
 const data_file_name = (area === 'erno') ? 'data_erno.json' : 'data.json';
-const multiplier = (area === 'erno') ? 12 : 6;
+const multiplier = (area === 'erno') ? 2 : 1;
 
 class App extends Component {
   constructor(props) {
@@ -140,7 +140,7 @@ class App extends Component {
       });
     g.selectAll('text')
       .style('font-size', (d, i) => {
-        return (Math.sqrt(d[this.state.dates[this.state.year_month_idx]]) * (multiplier - 1)) + 'px';
+        return (Math.sqrt(d[this.state.dates[this.state.year_month_idx]]) * (multiplier)) + 'px';
       })
       .html((d, i) => {
         if (d[this.state.dates[this.state.year_month_idx]] > 0) {
